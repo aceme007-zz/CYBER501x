@@ -1,0 +1,90 @@
+Information Assurance Fundamentals - Confidentiality, Integrity, Availability (CIA)
+Penetration testers find and exploit vulnerabilities
+MICE, money, ideology, compromise or coercion, ego or extortion.
+MEECES, money, ego, entertainment, cause, entrance, and status
+AAA -
+Authentication (something you know [password], something you have[fob], something you are[biometrics])
+Authorization (rbac)
+Accounting
+
+plain text -> algo + key -> cipher text
+
+Kerckhoffs
+AES/DS4 are older symmetric encryption
+RSA is an example of asymmetric encryption
+
+input -> hashing -> message digest
+
+switch connect devices of same network together
+- if switch doesnt know where dest mac address is, it floods the pkt to all interfaces (ARP requests)
+- switch starts learning (SourceAddressTable SAT which maps mac addr and i/f)
+- switches dont change any part of frame
+routers connect different networks together (control access lists)
+mac address (48 bits) are physical address burned unto NIC
+IPv4 (32 bits) are logical addresses bound via software (limited time)
+subnet mask (network ID <all 1s> + host ID <all 0s>) - can span multiple octects
+- network identifier (boolean AND of IP and subnet mask - lets source know that it's on same network)
+- network broadcast address
+ARP broadcast message (IP -> MAC mapping; only known IP unicasts its IP as ARP reply)
+default gateway (router interface for managing connections between different networks)
+- each interface of router connects different network
+- router never broadcasts ARP
+- routing tables (default route for other networks else send drop pkt and send error msg via ICMP)
+- each router ARPs to get next hop address?
+MAC address are flat (no hieracrhy) & IP addresses are geographical = so we need combination.
+
+NIC (services -> daemons) using a port (logical number)
+L2 - mac
+L3 IP
+L4 ports
+- well known 0-1023) eg ftp21, webserver80
+- registered 1024 - 49151
+- dynamic 49152 - 65535 (client specific as needed)
+TCP vs UDP (RTSP - realtime streaming protocol which is at L7 uses RTSP ordering of UDP)
+- both TCP and UDP datagrams have source and dest ports
+
+Autonomous Network (ISP)
+Autonomous System Number - dynamic routing
+IGP (interior gateway protocol => OSPF, EIGRP; main metric is bandwidth)
+EGP (exterior gateway protocol => BGP
+
+DHCP (dynamic host config proto) & DNS (domain name system)
+RARP MAC -> IP but it was L2 so cant be used across networks
+BOOTP (bootstrap protocol) encapsulated with IP
+DHCP added scopes (ranges of IP addr used in dynamic fashion)
+- [D]iscover
+- [O]ffer
+- [R]equest
+- [A]ck
+DNS Domain Name System
+Firewalls - h/w(network based) or s/f(host based) based: filter traffic based on rules i.e permit/deny inbound/outbound traffic; sit on border
+- they prevent unauth access to/from a system or network
+- packet filtering (user defined rules)
+--stateless : sessionless, high throughput, ACL, referencing, IP, ports
+--stateful : sessions, stages of TCP
+ALG (app layer gateway) - applies security mechanisms L7 on apps like HTTP, SSL, FTP, DNS
+- DPI (deep packet inspection looking at headers) done by ALG: data sent in right format => DCI (deep content inspection)
+
+IDS (Intrusion Detection System) or IPS (Intrusion Prevention System)
+out of band, no latency VS in band, latency (traffic processed live)
+- If IDS is attacked, it could me more damaging for network traffic
+Honeypot -> honeynet (n/w of these systems)
+- lure attackers, improve fw rules
+- Deception s/f (run through virtualization)
+
+Malware : malicious software - viruses(spread) and worms(replicate themselves across networks)
+- viruses need a host file to infect
+Logic Bombs
+Trojan horses - do not replicate on local machine or network
+RAT (remote admin tool)
+Rootkit (permanent undetectable presence) => backdoor
+Digital forensics takes place as part of incident response
+- evidence acquired and imaged
+- evidence analyzed
+- report
+
+
+
+
+
+
